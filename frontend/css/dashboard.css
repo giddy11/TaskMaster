@@ -1,0 +1,310 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #007bff;
+    color: #fff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header .btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Edit Button */
+button.edit {
+    background-color: #007bff;
+    color: white;
+    min-width: 80px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.edit:hover {
+    background-color: #0056b3;
+}
+
+/* Cancel Button (Specific for Modals) */
+button#close-modal-btn {
+    background-color: #dc3545; /* Red background for cancel */
+    color: white;
+}
+
+button#close-modal-btn:hover {
+    background-color: #a71d2a; /* Darker red when hovered */
+}
+
+/* Delete Button */
+button.delete {
+    background-color: #dc3545;
+    color: white;
+    min-width: 80px;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.delete:hover {
+    background-color: #a71d2a;
+}
+
+
+/* Logout Button */
+header .btn#logout-btn {
+    background-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+header .btn#logout-btn:hover {
+    background-color: #a71d2a;
+}
+
+/* Task Controls */
+.task-controls {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filters label {
+    margin-right: 0.5rem;
+}
+
+.filters select,
+.filters input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 120px;  /* Set a minimum width for all buttons */
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Task Table */
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    margin: 0 auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tasks-table thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.tasks-table th,
+.tasks-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+ .tasks-table tr {
+    /* border: 2px solid green; */
+    width: 100%;
+} 
+.tasks-table tr:hover {
+    min-width: 100%;
+    overflow-x: hidden;
+    /* border: 2px solid green; */
+    background-color: #f1f1f1;
+}
+
+/* Priority Colors */
+.tasks-table .low-priority {
+    background-color: #d4edda; /* Green for low priority */
+}
+
+.tasks-table .medium-priority {
+    background-color: #ffeeba; /* Yellow for medium priority */
+}
+
+.tasks-table .high-priority {
+    background-color: #f8d7da; /* Red for high priority */
+}
+
+/* Task Actions */
+.task-actions button {
+    margin-right: 0.5rem;
+    padding: 0.3rem 0.8rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 80px;
+    transition: background-color 0.3s ease;
+}
+
+.task-actions button.delete {
+    background-color: #dc3545;
+}
+
+.task-actions button.delete:hover {
+    background-color: #a71d2a;
+}
+
+.task-actions button:not(.delete) {
+    background-color: #007bff;
+}
+
+.task-actions button:not(.delete):hover {
+    background-color: #0056b3;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 2rem;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal-content .btn {
+    align-self: flex-start;
+}
+
+/* Responsive Table */
+.tasks-table-wrapper {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.tasks-table th,
+.tasks-table td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.tasks-table th {
+    background-color: #007bff;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+@media (max-width: 768px) {
+    .tasks-table th,
+    .tasks-table td {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    .tasks-table {
+        display: block;
+    }
+
+    .tasks-table thead {
+        display: none;
+    }
+
+    .tasks-table tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+    }
+
+    .tasks-table tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tasks-table tbody tr td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        flex: 1;
+    }
+}
+
+/* Modal Textarea Styling */
+textarea {
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    font-size: 1rem;
+}

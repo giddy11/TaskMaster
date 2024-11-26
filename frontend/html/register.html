@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - TaskManager</title>
+    <link rel="stylesheet" href="/frontend/css/register.css">
+</head>
+<body>
+    <div class="container">
+        <h1>TaskManager Registration</h1>
+        <form id="register-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="btn">Register</button>
+        </form>
+        <p>Already have an account? <a href="/frontend/html/login.html">Login here</a>.</p>
+    </div>
+    <script src="/frontend/js/register.js"></script>
+    <script src="/frontend/js/utils.js"></script>
+</body>
+</html>

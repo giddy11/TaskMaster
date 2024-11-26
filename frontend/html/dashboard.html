@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskManager - Dashboard</title>
+    <link rel="stylesheet" href="/frontend/css/dashboard.css">
+</head>
+<body>
+    <header>
+        <h1>TaskManager</h1>
+        <button id="logout-btn" class="btn">Logout</button>
+    </header>
+    <main>
+        <div class="task-controls">
+            <button id="add-task-btn" class="btn">Add Task</button>
+            <div class="filters">
+                <label for="filter-priority">Priority:</label>
+                <select id="filter-priority">
+                    <option value="">All</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <label for="filter-deadline">Deadline:</label>
+                <input type="date" id="filter-deadline">
+                <button id="filter-btn" class="btn">Filter</button>
+            </div>
+        </div>
+        <div id="tasks-table-wrapper">
+            <table class="tasks-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Deadline</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tasks-tbody">
+                    <!-- Tasks will be rendered here -->
+                </tbody>
+            </table>
+        </div>
+        
+    </main>
+
+    <!-- Add Task Modal -->
+    <div id="add-task-modal" class="modal">
+        <div class="modal-content">
+            <h2>Add Task</h2>
+            <form id="add-task-form">
+                <input type="hidden" id="task-id" value="">
+                <label for="task-title">Title:</label>
+                <input type="text" id="task-title" required>
+                
+                <label for="task-description">Description:</label>
+                <textarea id="task-description"></textarea>
+                
+                <label for="task-priority">Priority:</label>
+                <select id="task-priority" required>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                
+                <label for="task-deadline">Deadline:</label>
+                <input type="date" id="task-deadline">
+                
+                <button type="submit" class="btn">Add Task</button>
+                <button type="button" id="close-modal-btn" class="btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/frontend/js/utils.js"></script>
+    <script src="/frontend/js/dashboard.js"></script>
+</body>
+</html>

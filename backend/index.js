@@ -1,36 +1,20 @@
-// set up the dotenv
-const dotenv = require("dotenv");
-dotenv.config();
-const cors = require('cors')
-const mongoose = require("mongoose");
-const connectDB = require("./config/dbConn");
-const corsOptions = require('./config/corsOptions')
+const app = require('./app');
+const connectDB = require('./db');
+const PORT = process.env.PORT || 5000;
 
-//set up the PORT
-const PORT = process.env.PORT || 3000;
-const express = require("express");
-var cookieParser = require('cookie-parser');
+(async () => {
+    try {
+        await connectDB(); // Wait for the database to connect
 
-// set up express
-const app = express();
-app.use(cors(corsOptions))
-app.use(cookieParser()); 
-app.use(express.json());
+        // Only start the server if the environment is not 'test'
+        if (process.env.NODE_ENV !== 'test') {
+            app.listen(PORT, () => {
+                console.log(`Server running on port ${PORT}`);
+            });
+        }
 
-connectDB()
-
-// User Routes
-const userRoutes = require('./routes/userRoutes');
-
-// Task Routes
-const taskRoutes = require('./routes/taskRoutes');
-
-app.use('/api/auth', userRoutes);
-
-app.use('/api', taskRoutes);
-
-//connect to database
-mongoose.connection.once('open', () => {
-    console.log("Connect to MongoDB");
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-});
+    } catch (error) {
+        console.error('Failed to start server:', error.message);
+        process.exit(1);
+    }
+})();
